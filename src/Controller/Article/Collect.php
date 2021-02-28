@@ -8,7 +8,13 @@
 namespace App\Controller\Article;
 
 
-class Collect
+use App\Controller\BaseController;
+
+class Collect extends BaseController
 {
 
+    public function main ()
+    {
+        // TODO: Implement main() method.
+    }
 }

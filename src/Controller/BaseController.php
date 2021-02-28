@@ -10,7 +10,7 @@ namespace App\Controller;
 use App\Lib\Request;
 use App\Lib\View;
 
-class BaseController
+abstract class BaseController
 {
     protected $isRequireLogin = true;
     protected $view;

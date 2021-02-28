@@ -13,7 +13,7 @@ class Index extends BaseController
 {
     protected $isRequireLogin = false;
 
-    public function main($a)
+    public function main()
     {
 
         $list = [];
