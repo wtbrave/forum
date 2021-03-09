@@ -1,3 +1,6 @@
 <?php get_view('header');?>
-1
+
+<div class="container-fixed">
+
+</div>
 <?php get_view('bottom');?>
