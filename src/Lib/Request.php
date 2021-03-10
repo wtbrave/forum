@@ -61,4 +61,41 @@ class Request
 
         return $this;
     }
+
+    /**
+     * 获取请求参数
+     *
+     * @param null $key
+     *
+     * @return array|bool|mixed
+     *
+     * @author: johnny
+     * @time: 2021-03-09 5:26 PM
+     */
+    public function getParams($key = null)
+    {
+        if($key !== null) {
+            if (isset($this->params[$key])) {
+                return $this->params[$key];
+            } else {
+                return false;
+            }
+        }
+
+        return $this->params;
+    }
+
+
+    /**
+     * 获取cookie
+     *
+     * @param null $key
+     *
+     * @author: johnny
+     * @time: 2021-03-09 5:36 PM
+     */
+    public function getCookies($key = null)
+    {
+
+    }
 }

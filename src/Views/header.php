@@ -3,6 +3,9 @@
     <head>
         <link rel="stylesheet" href="/lib/dist/css/zui.css">
         <link rel="stylesheet" href="/lib/dist/css/zui.css">
+        <script src="/lib/dist/lib/jquery/jquery-3.4.1.min.js"></script>
+        <script src="/lib/dist/js/zui.min.js"></script>
+
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,8 +53,99 @@
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li id="langSwitcher"><a title="Switch language" href=""><span> <i class="path-1"></i><i class="path-2"></i> <i class="icon icon-user var-icon-user"></i></span></a></li>
+                    <li id="langSwitcher" class="dropdown-header dropdown-hover">
+                            <a title="Your Profile" class="dropdown"><span> <i class="path-1"></i><i class="path-2"></i> <i class="icon icon-user var-icon-user"></i></span></a>
+                            <ul class="dropdown-menu">
+                                <?php if($is_login):?>
+                                <li><a href="/user/loginOut">退出登陆</a></li>
+                                <?php else:?>
+                                <li><a type="button" data-toggle="modal" data-target="#login">登录</a></li>
+                                <li><a type="button" data-toggle="modal" data-target="#register">注册</a></li>
+                                <?php endif;?>
+                            </ul>
+                    </li>
                 </ul>
             </div>
     </header>
+<?php if(!$is_login):?>
+<div class="modal fade" id="login">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                <h4 class="modal-title">请登录噢～</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="login-form">
+                    <div class="form-group">
+                        <label for="username" class="col-sm-2">账号：</label>
+                        <div class="col-sm-6">
+                            <input type="text" name="username" class="form-control" id="username" placeholder="登录用户名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2">密码：</label>
+                        <div class="col-sm-6">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="输入密码">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="login-submit">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="register">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                <h4 class="modal-title">请登录噢～</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="register-form">
+                    <div class="form-group">
+                        <label for="username" class="col-sm-2">登录用户名：</label>
+                        <div class="col-sm-6">
+                            <input type="text" name="username" class="form-control" id="register_username" placeholder="登录用户名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2">密码：</label>
+                        <div class="col-sm-6">
+                            <input type="password" name="password" class="form-control" id="register_password" placeholder="密码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2">确认密码：</label>
+                        <div class="col-sm-6">
+                            <input type="password" name="ensure_password" class="form-control" id="ensure_password" placeholder="确认密码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2">昵称：</label>
+                        <div class="col-sm-6">
+                            <input type="text" name="email" class="form-control" id="email" placeholder="响亮的名字">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2">邮箱：</label>
+                        <div class="col-sm-6">
+                            <input type="text" name="email" class="form-control" id="email" placeholder="邮箱地址">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="login-submit">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif;?>
 

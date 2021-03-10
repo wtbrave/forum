@@ -14,6 +14,8 @@ namespace App\Controller\User;
  */
 class Login
 {
-
-
+    public function main()
+    {
+        setcookie('aaaa', '11111');
+    }
 }

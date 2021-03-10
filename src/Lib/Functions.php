@@ -11,6 +11,6 @@ use App\Lib\View;
 if(!function_exists('get_view')) {
     function get_view($fileName)
     {
-        View::instance()->view($fileName);
+        View::instance()->includeView($fileName);
     }
 }

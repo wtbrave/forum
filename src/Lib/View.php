@@ -16,6 +16,7 @@ class View
 {
     private $params = [];
     private static $view;
+    private $file;
     private function __construct (){}
     private function __clone(){}
     public static function instance()
@@ -35,13 +36,19 @@ class View
 
     public function view($file)
     {
-        require ROOT_DIR.'/src/Views/'.$file.'.php';
-
+        $this->file = $file;
         return $this;
     }
 
     public function render()
     {
         extract($this->params);
+        require ROOT_DIR.'/src/Views/'.$this->file.'.php';
+    }
+
+    public function includeView($file)
+    {
+        extract($this->params);
+        require ROOT_DIR.'/src/Views/'.$file.'.php';
     }
 }
