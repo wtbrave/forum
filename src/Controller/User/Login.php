@@ -6,6 +6,9 @@
  */
 namespace App\Controller\User;
 
+use App\Lib\Response;
+use App\Models\UserModel;
+
 /**
  * Class Login
  * @package App\Controller\User
@@ -16,6 +19,13 @@ class Login
 {
     public function main()
     {
-        setcookie('aaaa', '11111');
+
+        setcookie('aaaa', '11111', time()+3600, '/', 'phooer.com');
+
+        Response::outputJson([
+            'code' => 200,
+            'msg'  => '登录成功',
+            'data' => (object)[]
+        ]);
     }
 }

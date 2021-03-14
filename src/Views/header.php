@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="/lib/dist/css/zui.css">
         <script src="/lib/dist/lib/jquery/jquery-3.4.1.min.js"></script>
         <script src="/lib/dist/js/zui.min.js"></script>
+        <script src="/js/common.js"></script>
 
 
         <meta charset="utf-8">
@@ -52,11 +53,16 @@
                         </div>
                     </div>
                 </form>
+
                 <ul class="nav navbar-nav navbar-right">
+                    <?php if($is_login):?>
+                    <a title="发帖" class="navbar-brand var-brand-title" href="/article/edit"><span><i class="icon icon-edit var-icon-user" style=""></i></span></a>
+                    <?php endif;?>
                     <li id="langSwitcher" class="dropdown-header dropdown-hover">
                             <a title="Your Profile" class="dropdown"><span> <i class="path-1"></i><i class="path-2"></i> <i class="icon icon-user var-icon-user"></i></span></a>
                             <ul class="dropdown-menu">
                                 <?php if($is_login):?>
+                                    <li><a href="/user/info">我的页面</a></li>
                                 <li><a href="/user/loginOut">退出登陆</a></li>
                                 <?php else:?>
                                 <li><a type="button" data-toggle="modal" data-target="#login">登录</a></li>
@@ -93,18 +99,18 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" id="login-submit">提交</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="login-submit">登录</button>
             </div>
         </div>
     </div>
 </div>
-
+    <script src="/js/user_login.js"></script>
 <div class="modal fade" id="register">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
-                <h4 class="modal-title">请登录噢～</h4>
+                <h4 class="modal-title">欢迎注册～</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" id="register-form">
@@ -129,7 +135,7 @@
                     <div class="form-group">
                         <label for="password" class="col-sm-2">昵称：</label>
                         <div class="col-sm-6">
-                            <input type="text" name="email" class="form-control" id="email" placeholder="响亮的名字">
+                            <input type="text" name="email" class="form-control" id="register_nickname" placeholder="响亮的名字">
                         </div>
                     </div>
                     <div class="form-group">
@@ -142,10 +148,12 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" id="login-submit">提交</button>
+                <button type="button" class="btn btn-primary" id="register-submit">注册</button>
             </div>
         </div>
     </div>
 </div>
 <?php endif;?>
+
+<div class="container-fixed">
 

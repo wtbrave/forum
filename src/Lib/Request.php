@@ -35,6 +35,7 @@ class Request
         //从环境变量($_SERVER)中取出请求信息
         $queryInfo = parse_url($_SERVER['REQUEST_URI']);
 
+        //处理路由，分发处理要用的ACTION文件
         $path = (isset($queryInfo['path']) && !empty($queryInfo['path'])) ? $queryInfo['path'] : '';
         if ($path == '/') {
             $path = '/index';

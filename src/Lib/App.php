@@ -25,28 +25,25 @@ class App
         try {
             $request = $request->disposeRequest();
         } catch (ActionNotFoundException $e) {
-            $view = new View();
+            $view = View::instance();
             $view->assign('message', $e->getMessage());
             $view->assign('code', $e->getCode());
-            return $view->render('error');
+            return $view->view('error')->render();
         }
 
         try {
 
             call_user_func_array([new $request->actionClass($request), 'main'], $request->params);
         } catch (HttpRequestException $e) {
-            $view = new View();
+            $view = View::instance();
             $view->assign('message', $e->getMessage());
             $view->assign('code', $e->getCode());
             return $view->render('error');
         } catch (\Exception $e) {
-            $view = new View();
+            $view = View::instance();
             $view->assign('message', $e->getMessage());
             $view->assign('code', $e->getCode());
-            return $view->render('error');
+            return $view->view('error')->render();
         }
     }
-
-
-
 }

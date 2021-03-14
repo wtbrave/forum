@@ -13,8 +13,20 @@ use App\Controller\BaseController;
 class Show extends BaseController
 {
 
+    protected $isRequireLogin = false;
+
     public function main ()
     {
-        // TODO: Implement main() method.
+        $article = [];
+        $articleHits = [];
+        $replyList   = [];
+
+
+        $this->view->view('show')
+            ->assign('article', $article)
+            ->assign('article_summary', $articleHits)
+            ->assign('replyList', $replyList)
+            ->assign('uid', $this->uid)
+            ->render();
     }
 }

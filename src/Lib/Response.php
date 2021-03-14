@@ -19,4 +19,13 @@ class Response
         header('Location:'.$url.'?callback='.urlencode($callback));
         exit;
     }
+
+
+    public static function outputJson($data)
+    {
+        ob_clean();
+        header('Content-type:application/json;charset=utf-8');
+        echo json_encode($data, JSON_PARTIAL_OUTPUT_ON_ERROR);
+        exit;
+    }
 }

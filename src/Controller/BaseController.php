@@ -13,9 +13,10 @@ use App\Lib\View;
 
 abstract class BaseController
 {
-    protected $isRequireLogin = true;
+    protected $isRequireLogin = false;
     protected $view;
     protected $request;
+    protected $uid = 0;
 
     //处理器核心实现方法
     abstract public function main();
@@ -33,7 +34,7 @@ abstract class BaseController
             if($this->_checkLogin()) {
                 $this->view->assign('is_login', true);
             } else {
-                Response::redirect('/user/login');
+                Response::redirect('/user/login_page');
             }
         }
     }

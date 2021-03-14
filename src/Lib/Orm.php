@@ -15,15 +15,17 @@ namespace App\Lib;
  */
 class Orm
 {
-    private static $db;
+    //对象
+    private  $db;
 
-    private $connector;
+    //唯一的链接池
+    private static $connector;
 
-    private function __construct ()
+    public function __construct ()
     {
         try{
             //todo 链接参数调整
-            $this->connector = new \PDO(
+            self::$connector = new \PDO(
                 'mysql:dbname=forum;host=127.0.0.1',
                 'root',
                 'a123456'
@@ -31,29 +33,27 @@ class Orm
         } catch (\PDOException $e) {
             echo $e->getMessage();die;
         }
-
-    }
-
-    private function __clone ()
-    {
-        // TODO: Implement __clone() method.
-    }
-
-    public static function getInstance()
-    {
-        if (!self::$db) {
-            self::$db = new self();
-        }
-
-        return self::$db;
     }
 
     public function connector()
     {
-        return $this->connector;
+        return self::$connector;
     }
 
     public function getOne()
+    {
+
+    }
+
+    public function insert($data)
+    {
+        $sql = 'INSERT INTO ';
+
+        $this->connector->query();
+    }
+
+
+    public function close()
     {
 
     }

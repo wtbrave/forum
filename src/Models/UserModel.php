@@ -10,8 +10,10 @@ namespace App\Models;
 
 use App\Lib\Orm;
 
-class UserModel
+class UserModel extends  Orm
 {
+    private $table = 'forum_user_identity';
+
     public function insertUser()
     {
         var_dump(Orm::getInstance()->connector());

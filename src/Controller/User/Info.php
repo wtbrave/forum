@@ -1,22 +1,21 @@
 <?php
 /**
  * Author: johnny<wtbrave@gmail.com>
- * Date: 26/02/2021
- * Time: 11:21 AM
+ * Date: 15/03/2021
+ * Time: 12:27 AM
  */
 
-namespace App\Controller\Article;
+namespace App\Controller\User;
 
 
 use App\Controller\BaseController;
 
-class Edit extends BaseController
+class Info extends BaseController
 {
-    public function main ()
+    public function main()
     {
         $this->view->assign('uid', $this->uid)
-            ->view('edit')
+            ->view('info')
             ->render();
     }
-
 }

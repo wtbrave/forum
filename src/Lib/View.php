@@ -43,12 +43,12 @@ class View
     public function render()
     {
         extract($this->params);
-        require ROOT_DIR.'/src/Views/'.$this->file.'.php';
+        include ROOT_DIR.'/src/Views/'.$this->file.'.php';
     }
 
     public function includeView($file)
     {
         extract($this->params);
-        require ROOT_DIR.'/src/Views/'.$file.'.php';
+        include ROOT_DIR.'/src/Views/'.$file.'.php';
     }
 }
