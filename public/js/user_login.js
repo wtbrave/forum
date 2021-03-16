@@ -38,7 +38,6 @@
                 if(response.code ==  200) {
                     toast(response.msg, forum_success);
                     $('#login').modal('hide', 'fit');
-                    location.reload();
                 } else {
                     toast(response.msg, forum_error)
                 }

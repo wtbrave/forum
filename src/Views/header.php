@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
     <head>
-        <link rel="stylesheet" href="/lib/dist/css/zui.css">
-        <link rel="stylesheet" href="/lib/dist/css/zui.css">
+        <link rel="stylesheet" href="/lib/dist/css/zui.css" />
+        <link rel="stylesheet" href="/lib/dist/css/zui.css" />
+        <link rel="stylesheet" href="/css/common.css" />
         <script src="/lib/dist/lib/jquery/jquery-3.4.1.min.js"></script>
         <script src="/lib/dist/js/zui.min.js"></script>
         <script src="/js/common.js"></script>

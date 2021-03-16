@@ -19,7 +19,6 @@ class Login
 {
     public function main()
     {
-
         setcookie('aaaa', '11111', time()+3600, '/', 'phooer.com');
 
         Response::outputJson([

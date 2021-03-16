@@ -12,8 +12,9 @@ function toast(message, type='success') {
 
     new $.zui.Messager(message, {
         icon : icon,
-        placement : 'center',
+        placement : 'top',
         type : type,
-        time : 4000
+        time : 1500,
+        cssClass: 'fixed-toast'
     }).show();
 }
